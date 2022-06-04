@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+	<h3>Add new payment:</h3>
+      <form action="{% url 'add' %}" method="post">
+          {% csrf_token %}
+          <table>
+          {{ form.as_table }}
+          
+        </table>
+                <button type="submit" class="btn btn-secondary btn-lg">Add New Payment</button>
+    </form>
+
+{% if todo_list %}
+      <a href="{% url 'delete-completed' %}"><button type="button" class="btn btn-secondary btn-lg">Delete Completed</button></a>
+      <!-- <button type="button" class="btn btn-secondary btn-lg">Delete All</button> -->
+
+    <ul class="list-group">
+        
+        {% for todo in todo_list %}
+        {% if todo.complete %}
+        <!-- <a href="{% url 'todo-detail' todo.pk %}"><li class="list-group-item">{{ todo.text }} *** ${{ todo.amount }}</li></a> -->
+        <a href="{% url 'update-todo' todo.pk %}"><li class="list-group-item completed"><s>{{ todo.text }} *** ${{ todo.amount }} *** {{ todo.whose_account_to_repay}}</s></li></a>
+        {% else %}
+        <!-- <a href="{% url 'todo-detail' todo.pk %}"><li class="list-group-item">{{ todo.text }} *** ${{ todo.amount }}</li></a> -->
+        <a href="{% url 'update-todo' todo.pk %}"><li class="list-group-item">{{ todo.text }} *** ${{ todo.amount }} *** {{ todo.whose_account_to_repay}}</li></a>
+        {% endif %}
+        {% endfor %}
+      </ul>
+
+      <h1>Total: ${{ total }}</h1>
+{% else %}
+<h3>There is no borrowing. Well done.</h3>
+{% endif %}
+    </div>
+
+{% endblock %}
