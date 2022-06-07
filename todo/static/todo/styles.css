@@ -1,11 +1,71 @@
-
-.completed {
-    color: blue;
+.header {
+    margin: 3% auto 2%;
+    padding-top: 2%;
 }
+
+.top {
+    text-align: center;
+    background-color: #6867AC;
+    color: white;
+    width: 60%;
+    margin: auto;
+}
+
+
+.add-forms {
+    text-align:center;
+    color: #FFBCD1;
+    width: 100%;
+    margin:auto;
+}
+
+.add-button {
+    margin: 3% auto ;
+}
+
+.history {
+    padding-top: 2%;
+    text-align: center;
+    width: 60%;
+    background-color: #FFBCD1;
+    margin:auto;
+}
+
+ul.borrow-list li {
+    background-color: #FFBCD1;
+}
+
+.total {
+    color:purple;
+}
+
+
+.delete-button {
+    margin-bottom: 2%;
     
+}
+
+.link {
+    color: #716F81;
+}
+
+.link:hover {
+    color:purple;
+}
+
+.link-completed {
+    color: #570A57;
+}
+
 .footer {
-position:absolute;
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+color: #716F81;
 text-align: center;
-width:100%;
-bottom: 5%;
+}
+
+.button {
+    margin-left: 5%;
 }

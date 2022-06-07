@@ -47,7 +47,9 @@ class TodoForm(forms.ModelForm):
         fields = ['text', 'amount', 'whose_account_to_repay']
 
 class RepayForm(forms.ModelForm):
+
+    
     class Meta:
         model = Repay
-        fields = ['repay']
+        fields = "__all__"
 

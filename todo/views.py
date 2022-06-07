@@ -4,6 +4,7 @@ from .models import Todo
 from .forms import RepayForm, TodoForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.decorators.http import require_POST
+from django.urls import reverse
 
 YEAR = datetime.datetime.now().year
 
@@ -33,25 +34,27 @@ def addTodo(request):
     return redirect('index')
 
 
-
 class todoUpdate(UpdateView):
     model = Todo
-    fields = '__all__'
-
+    fields = ['text', 'amount', 'whose_account_to_repay']
+    success_url = '/'
+  
+    
 def updateTodo(request, todo_pk):
     todo = get_object_or_404(Todo, id=todo_pk)
     if request.method == 'POST':
         form = RepayForm(request.POST)
-
+        
         if form.is_valid():        
             p = request.POST['repay']
             p= float(p)
-            print(f"this time ${p} is to be deducted.")
             original_p = todo.amount
-            print(f'Original ammount is ${original_p}')
             new_p = original_p - p
-            print(f'new borrow is ${new_p}')
             todo.amount = new_p
+            
+            if todo.amount == 0:
+                todo.complete = True
+                todo.save()
             todo.save()
             form.save()
             return redirect('index')
@@ -60,6 +63,7 @@ def updateTodo(request, todo_pk):
     context = {
         'form': form,
         'todo':todo,
+        'year': YEAR,
     }
     return render(request, 'todo/update_todo.html', context=context)
 
