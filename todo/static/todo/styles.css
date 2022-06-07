@@ -1,3 +1,20 @@
+h1 {
+font-family: 'Monofett';
+}
+
+h2, h3, h4 {
+    font-family: 'Lobster';
+}
+
+p {
+    font-family:'Jua';
+    font-size: large;
+}
+
+.word {
+    color: #F806CC;
+}
+
 .header {
     margin: 3% auto 2%;
     padding-top: 2%;
@@ -5,7 +22,7 @@
 
 .top {
     text-align: center;
-    background-color: #6867AC;
+    background-color: black;
     color: white;
     width: 60%;
     margin: auto;
@@ -27,22 +44,77 @@
     padding-top: 2%;
     text-align: center;
     width: 60%;
-    background-color: #FFBCD1;
+    background-color: black;
     margin:auto;
 }
 
 ul.borrow-list li {
-    background-color: #FFBCD1;
+    background-color: black;
 }
 
 .total {
-    color:purple;
+    color:red;
 }
 
 
 .delete-button {
     margin-bottom: 2%;
     
+}
+
+.no-history {
+    text-align: center;
+}
+
+/* todo_form.html */
+
+.update-div {
+    padding-top: 5%;
+    width:60%;
+    margin:3% auto;
+    background-color: black;
+}
+
+.update-form {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    color: #FFBCD1;
+}
+
+.update-button {
+    text-align: center;
+    margin-top: 4%;
+    padding-bottom: 5%;
+}
+
+/* repay.html */
+
+.repay-div {
+    background-color: black;
+    width: 60%;
+    margin: 3% auto;
+    color: white;
+    text-align: center;
+    padding-top: 3%;
+    padding-bottom: 5%;
+}
+
+.repay-form {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    color: #FFBCD1;
+}
+
+.repay-button {
+    margin-top: 4%;
+}
+
+/* ALL */
+
+.tables {
+    padding-top: 2%;
 }
 
 .link {
@@ -54,7 +126,7 @@ ul.borrow-list li {
 }
 
 .link-completed {
-    color: #570A57;
+    color: #FF00E4;
 }
 
 .footer {
@@ -64,6 +136,7 @@ bottom: 0;
 width: 100%;
 color: #716F81;
 text-align: center;
+font-family: 'Monofett';
 }
 
 .button {

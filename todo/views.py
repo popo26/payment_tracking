@@ -45,7 +45,8 @@ def updateTodo(request, todo_pk):
     if request.method == 'POST':
         form = RepayForm(request.POST)
         
-        if form.is_valid():        
+        if form.is_valid():  
+           
             p = request.POST['repay']
             p= float(p)
             original_p = todo.amount
@@ -65,7 +66,7 @@ def updateTodo(request, todo_pk):
         'todo':todo,
         'year': YEAR,
     }
-    return render(request, 'todo/update_todo.html', context=context)
+    return render(request, 'todo/repay.html', context=context)
 
 
 def completeTodo(request, todo_pk):

@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container">
+
   <div class="top">
     <div class="header">
       <h2>How much did you borrow? </h2>
@@ -14,20 +14,20 @@
             <!-- {{ form.as_table }} -->
             <tr>
               <td>
-                <div class="col-md"><label for="text">Item: </label></div>
+                <div class="col-md tables"><label for="text">Item: </label></div>
                 {{ form.text }}
 
               </td>
             </tr>
             <tr>
               <td>
-                <div class="col-md"><label for="amount">Amount: </label></div>
+                <div class="col-md tables"><label for="amount">Amount: </label></div>
                 {{ form.amount }}
               </td>
             </tr>
             <tr>
               <td>
-                <div class="col-md"><label for="whose_account_to_repay">Whose account: </label></div>
+                <div class="col-md tables"><label for="whose_account_to_repay">Whose account: </label></div>
                 {{ form.whose_account_to_repay }}
               </td>
             </tr>
@@ -41,7 +41,7 @@
   {% if todo_list %}
   <div class="history">
     <a class='link' href="{% url 'delete-completed' %}"><button type="button"
-        class="btn btn-secondary btn-lg delete-button">Delete Completed</button></a>
+        class="btn btn-outline-light btn-lg delete-button">Delete Completed</button></a>
 
     <ul class="list-group borrow-list">
 
@@ -52,7 +52,7 @@
       <a class='link-completed' href="{% url 'todo-detail' todo.pk %}">
         <li class="list-group-item completed">
           <s>${{ todo.amount }} ({{ todo.text }}) : {{ todo.whose_account_to_repay}}'s account
-            <a href="{% url 'update-todo' todo.pk %}"></s>
+            <a href="{% url 'repay' todo.pk %}"></s>
         </li>
       </a>
      
@@ -61,7 +61,7 @@
 
       <a class='link' href="{% url 'todo-detail'  todo.pk %}">
         <li class="list-group-item">${{ todo.amount }} ({{ todo.text }}) : {{ todo.whose_account_to_repay}}'s account
-          <a href="{% url 'update-todo' todo.pk %}"><button type="button"
+          <a href="{% url 'repay' todo.pk %}"><button type="button"
               class="btn btn-outline-light btn-sm button">Repay</button></a>
         </li>
       </a>
@@ -73,7 +73,7 @@
     <br>
     <h1 class="total">Total: ${{ total }}</h1>
     {% else %}
-    <h3>There is no borrowing. Well done.</h3>
+    <h3 class="no-history">There is no borrowing. Well done.</h3>
     {% endif %}
   </div>
 

@@ -51,5 +51,5 @@ class RepayForm(forms.ModelForm):
     
     class Meta:
         model = Repay
-        fields = "__all__"
+        fields = '__all__'
 
