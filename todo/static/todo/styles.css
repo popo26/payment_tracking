@@ -91,6 +91,21 @@ ul.borrow-list li {
     border-radius: 100%;
 }
 
+.pagination-span {
+    text-align: center;
+    width:100%;
+    margin: auto;
+    font-size: x-small;
+}
+
+.pagination-links {
+    color: #FFBCD1;
+}
+
+.pagination-links:hover {
+    color:crimson;
+}
+
 /* todo_form.html */
 
 .update-div {

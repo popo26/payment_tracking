@@ -4,9 +4,10 @@ from .gifs import gifs
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Todo
 from .forms import RepayForm, TodoForm
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import UpdateView
 from django.views.decorators.http import require_POST
 from django.urls import reverse
+from django.core.paginator import Paginator
 
 
 YEAR = datetime.datetime.now().year
@@ -16,7 +17,10 @@ def index(request):
     todo_list = Todo.objects.order_by('id')
     form = TodoForm()
     gif = random.choice(gifs)
-    
+    paginator = Paginator(todo_list, 5) # Show 5 items per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     for item in todo_list:
         if not item.complete:
             total += item.amount
@@ -27,6 +31,7 @@ def index(request):
         'year' : YEAR,
         'total' : total,
         'gif': gif,
+        'page_obj': page_obj,
     }
     return render(request, 'todo/index.html', context=context)
 

@@ -3,9 +3,9 @@
 {% block content %}
 
 <div class="repay-div">
-<p>This is for <strong class="word">{{ todo.text }}</strong> from {{ todo.date }}</p>
+<p>This is for <strong class="word">{{ todo.text|capfirst  }}</strong> from {{ todo.date }}</p>
 <p>Current borrow is <strong class="word">${{ todo.amount }}</strong>.</p>
-<p>Return to <strong class="word">{{ todo.whose_account_to_repay }}</strong>'s account.</p>
+<p>Return to <strong class="word">{{ todo.whose_account_to_repay|capfirst  }}</strong>'s account.</p>
 
 <br>
 {% if todo.amount != 0 %}
