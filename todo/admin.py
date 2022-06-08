@@ -6,11 +6,16 @@ from .models import Todo, Repay
 class RepayInline(admin.TabularInline):
     model = Repay
     can_delete = False
-
+    
+    
 @admin.register(Todo)
 class TodoAdmin(admin.ModelAdmin):
     list_display = ['date', 'text', 'amount', 'whose_account_to_repay']
     list_per_page = 10
     inlines = [RepayInline]
 
+# @admin.register(Repay)
+# class RepayAdmin(admin.ModelAdmin):
+#     list_display = ['date', 'todo', 'repay']
+#     list_per_page = 10
 

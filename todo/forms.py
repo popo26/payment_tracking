@@ -48,8 +48,8 @@ class TodoForm(forms.ModelForm):
 
 class RepayForm(forms.ModelForm):
 
-    
     class Meta:
         model = Repay
-        fields = '__all__'
+        fields = ['repay', 'todo']
+
 

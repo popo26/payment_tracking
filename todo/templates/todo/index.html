@@ -33,7 +33,7 @@
             </tr>
           </table>
       
-      <button type="submit" class="btn btn-outline-light btn-lg add-button">Add amount</button>
+      <button type="submit" class="btn btn-outline-light btn-lg add-button">Add</button>
     </form>
 
   </div>
@@ -73,7 +73,11 @@
     <br>
     <h1 class="total">Total: ${{ total }}</h1>
     {% else %}
-    <h3 class="no-history">There is no borrowing. Well done.</h3>
+    <div class="well-done-div">
+    <h3 class="no-history">There is no borrowing.</h3>
+    <h3 class="no-history">Well done.</h3>
+    <div class="img-div"><img class='well-done-img' src="{{ gif }}" alt="well-done"></div>
+  </div>
     {% endif %}
   </div>
 

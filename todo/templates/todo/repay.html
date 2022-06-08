@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="repay-div">
-<p>This is for <strong class="word">{{ todo.text }}</strong>.</p>
+<p>This is for <strong class="word">{{ todo.text }}</strong> from {{ todo.date }}</p>
 <p>Current borrow is <strong class="word">${{ todo.amount }}</strong>.</p>
 <p>Return to <strong class="word">{{ todo.whose_account_to_repay }}</strong>'s account.</p>
 
@@ -12,25 +12,23 @@
 <form action="" method="post">
 {% csrf_token %}
 <table class="repay-form">
-   <tr>
-      <td>
-        <div class="col-md tables"><label for="text">Item: </label></div>
-        {{ form.todo }}
 
-      </td>
-    </tr>
+  
+        {{ form.todo.as_hidden }}
+
+
     <tr>
       <td>
-        <div class="col-md tables"><label for="text">Repay: </label></div>
+        <div class="col-md tables"><label for="repay">How much did you repay today? </label></div>
         {{ form.repay }}
 
       </td>
     </tr>
-   <!-- {{ form}} -->
+   
   
 </table>
 <div class="repay-button">
-<input type="submit" value="Repay this amount" class="btn btn-outline-light btn-lg">
+<input type="submit" value="Submit" class="btn btn-outline-light btn-lg">
 </div>
 </form>
 

@@ -11,6 +11,8 @@ p {
     font-size: large;
 }
 
+/* index.html */
+
 .word {
     color: #F806CC;
 }
@@ -64,6 +66,29 @@ ul.borrow-list li {
 
 .no-history {
     text-align: center;
+}
+
+.well-done-div {
+    width: 60%;
+    height: 30%;
+    margin:auto;
+
+}
+
+.img-div {
+    
+    width:30%;
+    
+    margin:auto;
+}
+
+.well-done-img {
+    padding-top: 5%;
+    margin: 2% auto;
+    max-width:100%;
+    max-height: 100%;
+    object-fit:contain;
+    border-radius: 100%;
 }
 
 /* todo_form.html */
