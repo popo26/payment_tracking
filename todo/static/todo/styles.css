@@ -39,7 +39,7 @@ p {
 }
 
 .add-button {
-    margin: 3% auto ;
+    margin: 3% auto 5%;
 }
 
 .history {
@@ -58,8 +58,8 @@ ul.borrow-list li {
     color:red;
 }
 
-
 .delete-button {
+    margin-top: 5%;
     margin-bottom: 2%;
     
 }
@@ -124,8 +124,8 @@ ul.borrow-list li {
 
 .update-button {
     text-align: center;
-    margin-top: 4%;
-    padding-bottom: 5%;
+    margin-top: 6%;
+    padding-bottom: 9%;
 }
 
 /* repay.html */
@@ -148,7 +148,7 @@ ul.borrow-list li {
 }
 
 .repay-button {
-    margin-top: 4%;
+    margin-top: 6%;
 }
 
 /* ALL */
