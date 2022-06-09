@@ -3,37 +3,37 @@
 {% block content %}
 
 <div class="repay-div">
-<p>This is for <strong class="word">{{ todo.text|capfirst  }}</strong> from {{ todo.date }}</p>
-<p>Current borrow is <strong class="word">${{ todo.amount }}</strong>.</p>
-<p>Return to <strong class="word">{{ todo.whose_account_to_repay|capfirst  }}</strong>'s account.</p>
+  <p>This is for <strong class="word">{{ todo.text|capfirst }}</strong> from {{ todo.date }}</p>
+  <p>Current borrow is <strong class="word">${{ todo.amount }}</strong>.</p>
+  <p>Return to <strong class="word">{{ todo.whose_account_to_repay|capfirst }}</strong>'s account.</p>
 
-<br>
-{% if todo.amount != 0 %}
-<form action="" method="post">
-{% csrf_token %}
-<table class="repay-form">
-
-  
-        {{ form.todo.as_hidden }}
+  <br>
+  {% if todo.amount != 0 %}
+  <form action="" method="post">
+    {% csrf_token %}
+    <table class="repay-form">
 
 
-    <tr>
-      <td>
-        <div class="col-md tables"><label for="repay">How much did you repay today? </label></div>
-        {{ form.repay }}
+      {{ form.todo.as_hidden }}
 
-      </td>
-    </tr>
-   
-  
-</table>
-<div class="repay-button">
-<input type="submit" value="Submit" class="btn btn-outline-light btn-lg">
-</div>
-</form>
 
-{% else %}
-<h2>Paid off! Well done.</h2>
+      <tr>
+        <td>
+          <div class="col-md tables"><label for="repay">How much did you repay today? </label></div>
+          {{ form.repay }}
+
+        </td>
+      </tr>
+
+
+    </table>
+    <div class="repay-button">
+      <input type="submit" value="Submit" class="btn btn-outline-light btn-lg">
+    </div>
+  </form>
+
+  {% else %}
+  <h2>Paid off! Well done.</h2>
 
 </div>
 {% endif %}
