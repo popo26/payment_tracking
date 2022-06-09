@@ -1,1 +1,1 @@
-web: ginicorn payment_tracking.wsgi
+web: gunicorn payment_tracking.wsgi
