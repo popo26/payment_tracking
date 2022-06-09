@@ -52,7 +52,7 @@
 
     <a class='link-completed' href="{% url 'todo-detail' todo.pk %}">
       <li class="list-group-item completed">
-        <s>${{ todo.amount }} ({{ todo.text|capfirst }}) : {{ todo.whose_account_to_repay|capfirst }}'s account
+        <s>{{ todo.text|upper }} 💲{{ todo.amount }}
           <a href="{% url 'repay' todo.pk %}"></s>
       </li>
     </a>
@@ -61,7 +61,7 @@
     {% else %}
 
     <a class='link' href="{% url 'todo-detail'  todo.pk %}">
-      <li class="list-group-item">${{ todo.amount }} ({{ todo.text|capfirst }}) : {{todo.whose_account_to_repay|capfirst }}'s account
+      <li class="list-group-item">{{ todo.text|upper }} 💲{{ todo.amount }}
         <a href="{% url 'repay' todo.pk %}"><button type="button"
             class="btn btn-outline-light btn-sm button">Repay</button></a>
       </li>

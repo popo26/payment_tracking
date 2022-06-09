@@ -26,7 +26,7 @@ p {
     text-align: center;
     background-color: black;
     color: white;
-    width: 60%;
+    width: 80%;
     margin: auto;
 }
 
@@ -45,7 +45,7 @@ p {
 .history {
     padding-top: 2%;
     text-align: center;
-    width: 60%;
+    width: 80%;
     background-color: black;
     margin:auto;
 }
@@ -110,7 +110,7 @@ ul.borrow-list li {
 
 .update-div {
     padding-top: 5%;
-    width:60%;
+    width:80%;
     margin:3% auto;
     background-color: black;
 }
@@ -132,7 +132,7 @@ ul.borrow-list li {
 
 .repay-div {
     background-color: black;
-    width: 60%;
+    width: 80%;
     margin: 3% auto;
     color: white;
     text-align: center;
