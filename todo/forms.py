@@ -1,46 +1,35 @@
 from django import forms
 from todo.models import Repay, Todo
 
-# class TodoForm(forms.Form):
-    
-#     text = forms.CharField(max_length=40,
-#         widget = forms.TextInput (
-#             attrs={
-#                 'class' : "form-control form-control-lg",
-#                 'id' : "colFormLabelLg",
-#                 'placeholder' : "Enter new payment info",
-#             }
-#         ))
-
-#     amount = forms.FloatField(
-#         widget = forms.TextInput (
-#             attrs= {
-#                 'class' : "form-control form-control-lg",
-#                 'id' : "colFormLabelLg",
-#                 'placeholder' : "Enter price. e.g, 85",
-#             }
-#         ))
 
 class TodoForm(forms.ModelForm):
+  
+    text = forms.CharField(max_length=40,
+        widget = forms.TextInput (
+            attrs={
+                'class' : "form-control form-control-md",
+                'id' : "colFormLabelLg",
+                'placeholder' : "e.g. Uber",
+            }
+        ))
 
-        
-    # text = forms.CharField(max_length=40,
-    #     widget = forms.TextInput (
-    #         attrs={
-    #             'class' : "form-control form-control-lg",
-    #             'id' : "colFormLabelLg",
-    #             'placeholder' : "Enter new payment info",
-    #         }
-    #     ))
+    amount = forms.FloatField(
+        widget = forms.TextInput (
+            attrs= {
+                'class' : "form-control form-control-md",
+                'id' : "colFormLabelLg",
+                'placeholder' : "e.g. 85",
+            }
+        ))
 
-    # amount = forms.FloatField(
-    #     widget = forms.TextInput (
-    #         attrs= {
-    #             'class' : "form-control form-control-lg",
-    #             'id' : "colFormLabelLg",
-    #             'placeholder' : "Enter price. e.g, 85",
-    #         }
-    #     ))
+    whose_account_to_repay = forms.CharField(max_length=100,
+        widget = forms.TextInput (
+            attrs= {
+                'class' : "form-control form-control-md",
+                'id' : "colFormLabelLg",
+                'placeholder' : "e.g. Mum",
+            }
+        ))
 
     class Meta:
         model = Todo
@@ -48,8 +37,19 @@ class TodoForm(forms.ModelForm):
 
 class RepayForm(forms.ModelForm):
 
+    repay = forms.FloatField(
+        widget = forms.TextInput (
+            attrs= {
+                'class' : "form-control form-control-md",
+                'id' : "colFormLabelLg",
+                'placeholder' : "e.g. 85",
+            }
+        ))
+
     class Meta:
         model = Repay
         fields = ['repay', 'todo']
+
+  
 
 

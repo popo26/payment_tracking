@@ -55,11 +55,25 @@ def updateTodo(request, todo_pk):
     if request.method == 'POST':  
         form = RepayForm(request.POST)
         if form.is_valid():  
+            
             p = request.POST['repay']
             p= float(p)
             original_p = todo.amount
             new_p = original_p - p
             todo.amount = new_p
+
+            if todo.amount < 0:
+                message = "Too much, Coco!"
+                form = RepayForm(initial={'todo': todo})
+                context = {
+                    'form': form,
+                    'todo':todo,
+                    'year': YEAR,
+                    'message': message,
+                    'original_p': original_p,
+                }
+                return render(request, 'todo/repay.html', context=context)
+           
             if todo.amount == 0:
                 todo.complete = True
                 todo.save()

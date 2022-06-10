@@ -4,7 +4,11 @@
 
 <div class="repay-div">
   <p>This is for <strong class="word">{{ todo.text|capfirst }}</strong> from {{ todo.date }}</p>
+  {% if todo.amount < 0 %}
+  <p>Current borrow is <strong class="word">${{ original_p }}</strong>.</p>
+  {% else %}
   <p>Current borrow is <strong class="word">${{ todo.amount }}</strong>.</p>
+  {% endif %}
   <p>Return to <strong class="word">{{ todo.whose_account_to_repay|capfirst }}</strong>'s account.</p>
 
   <br>
@@ -16,11 +20,15 @@
 
       {{ form.todo.as_hidden }}
 
-
+{% if message %}
+<div class="alert alert-danger too-much" role="alert">
+{{ message }}
+</div>
+{% endif %}
       <tr>
         <td>
           <div class="col-md tables"><label for="repay">How much did you repay today? </label></div>
-          {{ form.repay }}
+          <div class="entry-field">{{ form.repay }}</div>
 
         </td>
       </tr>
@@ -32,6 +40,7 @@
     </div>
   </form>
 
+  
   {% else %}
   <h2>Paid off! Well done.</h2>
 
